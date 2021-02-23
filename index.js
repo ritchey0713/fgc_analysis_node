@@ -1,15 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = requrie("body-parser");
+const bodyParser = require("body-parser");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
+const keys = require("./config/keys");
 
 require("./models/User");
 require("./models/Game");
 require("./models/Character");
 
 require("./services/passport");
-const cookieSession = require("cookie-session");
-const passport = require("passport");
-const keys = require("./config/keys");
 
 const app = express();
 app.use(bodyParser.json());
@@ -23,7 +23,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-const PORT = process.env.port || 5000;
+const PORT = process.env.PORT || 6600;
 
 const dbConnection = async () => {
   try {
@@ -40,5 +40,9 @@ const dbConnection = async () => {
 };
 
 dbConnection();
+
+app.get("/", (req, res) => {
+  res.send("dfg");
+});
 
 app.listen(PORT);
