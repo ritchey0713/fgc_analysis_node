@@ -55,14 +55,16 @@ const createCharacters = async (gameId) => {
       gameId,
     };
   });
-  // console.log(charArr[0]);
   await charArr.forEach((char) => {
     const charDoc = new Character(char).save();
   });
 };
 
-// const createCharacters = () => {
+const assignCharsToGame = async () => {
+  const [game] = await Game.find({ title: "Street Fighter 5" });
+  const chars = await Character.find({ gameId: game._id });
+  game.characters = chars.map((char) => char._id);
+  game.save();
+};
 
-// };
-
-//module.exports.createGames = createGames;
+// assignCharsToGame();
