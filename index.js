@@ -5,6 +5,7 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 const keys = require("./config/keys");
 
+const { createGames } = require("./services/assignObjs");
 require("./models/User");
 require("./models/Game");
 require("./models/Character");
@@ -46,5 +47,10 @@ dbConnection();
 app.get("/", (req, res) => {
   res.send("dfg");
 });
+
+// build games
+//createGames();
+
+// build chars
 
 app.listen(PORT);
