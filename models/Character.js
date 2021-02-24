@@ -10,6 +10,7 @@ const characterSchema = new Schema({
   tier: String,
   banned: Boolean,
   isDLC: Boolean,
+  gameId: String,
 });
 
 mongoose.model("characters", characterSchema);
