@@ -23,6 +23,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+require("./routes/gameRoutes")(app);
+
 const PORT = process.env.PORT || 6600;
 
 const dbConnection = async () => {
