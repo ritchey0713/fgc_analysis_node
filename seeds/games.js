@@ -1,0 +1,38 @@
+module.exports = [
+  {
+    title: "Street Fighter 5",
+    developer: "Capcom",
+    characters: [],
+    leagues: ["Capcom League"],
+    activePlayers: 500,
+    communityActive: true,
+    discords: [],
+  },
+  {
+    title: "Super Smash Bros Ultimate",
+    developer: "Nintendo",
+    characters: [],
+    leagues: ["Smash All-stars"],
+    activePlayers: 500,
+    communityActive: true,
+    discords: [],
+  },
+  {
+    title: "Guilty Gear Strive *Pending Release*",
+    developer: "ArcSystem Works",
+    characters: [],
+    leagues: ["Matchstick Melee"],
+    activePlayers: 500,
+    communityActive: true,
+    discords: [],
+  },
+  {
+    title: "Gran Blue Fantasy:Versus",
+    developer: "Nintendo",
+    characters: [],
+    leagues: ["Matchstick Melee"],
+    activePlayers: 500,
+    communityActive: true,
+    discords: [],
+  },
+];
