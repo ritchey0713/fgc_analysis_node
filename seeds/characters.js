@@ -21,7 +21,7 @@ const createCharacters = () => {
         ),
       })),
       stats: jsonData[name]["stats"],
-      game_id: "60367a2731b01ed1ee4999ac",
+      game_id: "",
     };
   });
 };
