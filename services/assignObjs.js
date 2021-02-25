@@ -17,6 +17,8 @@ const createGames = async () => {
   });
 };
 
+module.exports.createGames = createGames;
+
 const getGameId = async (gameName) => {
   try {
     const games = await Game.find({ title: gameName });
@@ -30,8 +32,8 @@ const getGameId = async (gameName) => {
   }
 };
 
-// create sfv chars
-// let x = getGameId("Street Fighter 5").then((res) => createCharacters(res));
+// // create sfv chars
+//let x = getGameId("Street Fighter 5").then((res) => createCharacters(res));
 
 let jsonData = JSON.parse(fs.readFileSync(sfvPath, "utf-8"));
 
@@ -40,7 +42,7 @@ const names = Object.keys(jsonData);
 const createCharacters = async (gameId) => {
   let charArr = names.map((name) => {
     return {
-      name,
+      name: name.replace(/\./g, ""),
       moves: Object.keys(jsonData[name]["moves"]).map((moveType) => ({
         [moveType]: Object.keys(jsonData[name]["moves"][moveType]).map(
           (moveName) => {
@@ -67,4 +69,4 @@ const assignCharsToGame = async () => {
   game.save();
 };
 
-// assignCharsToGame();
+//assignCharsToGame();
