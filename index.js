@@ -25,12 +25,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require("./routes/gameRoutes")(app);
+require("./routes/characterRoutes")(app);
 
 const PORT = process.env.PORT || 6600;
 
 const dbConnection = async () => {
   try {
-    await mongoose.connect(keys.mongoURI, {
+    db = await mongoose.connect(keys.mongoURI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
@@ -44,13 +45,7 @@ const dbConnection = async () => {
 
 dbConnection();
 
-app.get("/", (req, res) => {
-  res.send("dfg");
-});
-
-// build games
-//createGames();
-
-// build chars
+// seeder
+// createGames();
 
 app.listen(PORT);
